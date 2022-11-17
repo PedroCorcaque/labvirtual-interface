@@ -1,0 +1,21 @@
+workflows:
+  linux-build:
+    name: Linux Build
+    instance_type: linux
+    environment:
+      groups:
+        - prod
+      node: 18.12.1
+    
+    scripts:
+      - name: Installing packages
+        scripts: npm install
+      - name: Installing RPM to build for arch linux
+        script: sudo apt install rpm -y
+      - name: Building Applications
+        script: npm run make-linux
+
+    artifacts:
+      - out/make/deb/x64/*.deb
+      - out/make/rpm/x64/*.rpm
+      - out/make/zip/linux/x64/*.zip

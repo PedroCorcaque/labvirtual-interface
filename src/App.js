@@ -1,24 +1,19 @@
-import logo from './logo.svg';
 import './App.css';
+
+const make_request = () => {
+  try {
+    fetch("http://localhost:5818/run_read_serial")
+    .then((response) => console.log(response));
+  } catch (err) {
+    console.log("Erro:", err);
+  }
+}
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <button type="button" onClick={() => make_request()}>
+      { "Texto" }
+    </button>
   );
 }
 

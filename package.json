@@ -1,5 +1,6 @@
 {
   "name": "labvirtual-interface",
+  "description": "The small controller to Laboratorio Virtual",
   "version": "0.1.0",
   "private": true,
   "proxy": "http://localhost:5818",
@@ -11,6 +12,7 @@
     "@testing-library/user-event": "^13.5.0",
     "concurrently": "^7.5.0",
     "electron": "^21.3.0",
+    "electron-compile": "^6.4.4",
     "electron-forge": "^5.2.4",
     "electron-is-dev": "^2.0.0",
     "express": "^4.18.2",
@@ -28,7 +30,6 @@
     "eject": "react-scripts eject",
     "dev": "concurrently -k \"BROWSER=none npm start\" \"npm run electron\"",
     "electron": "wait-on tcp:3000 && electron .",
-    "package": "react-scripts build && electron-forge package",
     "make-linux": "react-scripts build && electron-forge make --platform linux",
     "make": "react-scripts build && electron-forge make"
   },
@@ -51,6 +52,7 @@
     ]
   },
   "devDependencies": {
+    "electron-prebuilt-compile": "8.2.0",
     "wait-on": "^6.0.1"
   },
   "config": {
@@ -71,7 +73,7 @@
         },
         {
           "name": "@electron-forge/maker-deb",
-          "config": "{}"
+          "config": {}
         },
         {
           "name": "@electron-forge/maker-rpm",

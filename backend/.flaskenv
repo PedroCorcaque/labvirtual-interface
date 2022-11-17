@@ -1,0 +1,4 @@
+FLASK_APP=api.py
+FLASK_RUN_HOST=localhost
+FLASK_RUN_PORT=5818
+FLASK_DEBUG=false

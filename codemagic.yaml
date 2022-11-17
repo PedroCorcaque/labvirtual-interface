@@ -8,6 +8,8 @@ workflows:
       node: 18.12.1
     
     scripts:
+      - name: Injecting env vars
+        script: echo "REACT_APP_API_URL=$REACT_APP_API_URL" >> .env
       - name: Installing packages
         scripts: npm install
       - name: Installing RPM to build for arch linux

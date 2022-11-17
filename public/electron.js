@@ -19,6 +19,14 @@ function createWindow() {
     if (isDev) {
         window.webContents.openDevTools({ mode: "detach" });
     }
+
+    var python = require("child_process").spawn("python3", ["backend/api.py"]);
+        python.stdout.on("data", (data) => {
+            console.log("data: ", data.toString("utf8"));
+        });
+        python.stderr.on("data", (data) => {
+            console.log(`stderr: ${data}`);
+        })
 }
 
 app.whenReady().then(createWindow);

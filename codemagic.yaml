@@ -11,7 +11,7 @@ workflows:
       - name: Injecting env vars
         script: echo "REACT_APP_API_URL=$REACT_APP_API_URL" >> .env
       - name: Installing packages
-        scripts: npm install
+        script: npm install
       - name: Installing RPM to build for arch linux
         script: sudo apt install rpm -y
       - name: Building Applications

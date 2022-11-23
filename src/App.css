@@ -36,3 +36,14 @@
     transform: rotate(360deg);
   }
 }
+
+button {
+  background-color: #009045;
+  color: white;
+  font-size: calc(10px + 1vmin);
+  width: 200px;
+  height: 50px;
+  border-radius: 100px;
+  border-color: black;
+  cursor: pointer;
+}

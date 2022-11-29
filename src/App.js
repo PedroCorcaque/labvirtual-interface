@@ -1,19 +1,20 @@
 import './App.css';
-import { Container } from './components/container';
-import { Header } from './components/header';
-import { Main } from './components/main';
-import { Footer } from './components/footer';
-
-const make_request = () => {
-  try {
-    fetch("http://localhost:5818/run_read_serial")
-    .then((response) => console.log(response));
-  } catch (err) {
-    console.log("Erro:", err);
-  }
-}
+import { useState } from "react";
+import { Container, Header, Main, Footer } from './components/styles';
 
 function App() {
+
+  const [response, setResponse] = useState("");
+
+  const make_request = () => {
+    try {
+      fetch("http://localhost:5818/run_read_serial")
+      .then((res) => setResponse(res));
+    } catch (err) {
+      console.log("Erro:", err);
+    }
+  }
+
   return (
     <Container>
       <Header>
@@ -26,7 +27,11 @@ function App() {
           { "Iniciar" }
         </button>
       </Main>
-      <Footer>algo</Footer>
+      <Footer>
+        <span style={{ "margin-right": "5vh" }}>
+          { `Status: ${response}` }
+        </span>
+      </Footer>
     </Container>
   );
 }

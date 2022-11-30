@@ -8,8 +8,22 @@ function App() {
 
   const make_request = () => {
     try {
-      fetch("http://localhost:5818/run_read_serial")
-      .then((res) => setResponse(res));
+      fetch("http://localhost:5818/run_read_serial", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json"
+        },
+        body: JSON.stringify({
+          port: "/dev/ttyUSB0",
+          baudrate: 9600,
+          method: "update",
+          interval: 600
+        })
+      })
+      .then((res) => {
+       setResponse(res);
+       console.log(res);
+      })
     } catch (err) {
       console.log("Erro:", err);
     }

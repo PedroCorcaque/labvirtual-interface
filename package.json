@@ -28,11 +28,14 @@
   "scripts": {
     "start": "react-scripts start",
     "start-api": "cd backend && venv/bin/flask run --no-debugger",
+    "start-api-win": "cd backend && venv\\Scripts\\flask.exe run",
     "run-complete": "concurrently -k \"BROWSER=none npm start\" \"npm run start-api\" \"npm run electron\"",
+    "run-complete-win": "concurrently -k \"npm start\" \"npm run start-api-win\" \"npm run electron\"",
     "build": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject",
     "dev": "concurrently -k \"BROWSER=none npm start\" \"npm run electron\"",
+    "dev-win": "concurrently -k \"npm start\" \"npm run electron\"",
     "electron": "wait-on tcp:3000 && electron .",
     "make-linux": "react-scripts build && electron-forge make --platform linux",
     "make": "react-scripts build && electron-forge make"
